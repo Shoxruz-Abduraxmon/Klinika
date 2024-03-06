@@ -7,6 +7,9 @@ dotenv.config();
 const routerLogin = require('./routes/login');
 const routerHome = require('./routes/home');
 const routerNevropatolg = require('./routes/nevropatolg');
+const routerOrtaped = require('./routes/Ortaped');
+const routerPediator = require('./routes/Pediator');
+const routerUzey = require('./routes/uzey');
 
 const app = express();
 
@@ -21,9 +24,31 @@ app.set('views', 'views');
 app.use(routerLogin);
 app.use(routerHome);
 app.use(routerNevropatolg);
+app.use(routerOrtaped);
+app.use(routerPediator);
+app.use(routerUzey);
 
-const PORT = process.env.PORT || 1994;
 
-app.listen(PORT, () => {
-    console.log(`localhost: ${PORT}`);
-});
+const connectDB = async () => {
+    try {
+        mongoose.set('strictQuery', false,)
+        mongoose.connect(process.env.MONGO_URI)
+        console.log('Mongo connected');
+
+        const PORT = process.env.PORT || 1994;
+
+        app.listen(PORT, () => {
+            console.log(`localhost: ${PORT}`);
+        });
+
+    } catch (err) {
+        console.log(err)
+        process.exit()
+    }
+}
+
+connectDB();
+
+
+
+
