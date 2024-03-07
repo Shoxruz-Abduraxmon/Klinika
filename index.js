@@ -10,6 +10,7 @@ const routerNevropatolg = require('./routes/nevropatolg');
 const routerOrtaped = require('./routes/Ortaped');
 const routerPediator = require('./routes/Pediator');
 const routerUzey = require('./routes/uzey');
+const routerRegister = require('./routes/register');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(routerNevropatolg);
 app.use(routerOrtaped);
 app.use(routerPediator);
 app.use(routerUzey);
+app.use(routerRegister);
 
 
 const connectDB = async () => {
