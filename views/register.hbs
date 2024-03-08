@@ -4,6 +4,12 @@
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+             {{#if registerError}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> {{registerError}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
@@ -25,11 +31,7 @@
                   <label class="form-label" for="form3Example4cg">Password</label>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" name="resPassword" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-                </div>
-
+        
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
                   <label class="form-check-label" for="form2Example3g">

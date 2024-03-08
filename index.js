@@ -1,6 +1,8 @@
 const express = require('express');
 const epxHbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const flash = require('connect-flash');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -21,6 +23,11 @@ const hbs = epxHbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(session({secret: "Shox", resave: false, saveUninitialized: false}));
+app.use(flash());
 
 app.use(routerLogin);
 app.use(routerHome);
