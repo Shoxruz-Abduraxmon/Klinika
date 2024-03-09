@@ -14,20 +14,29 @@
 </div>
 
 
-<form method="post">
+ <div class="container">
+  {{#if ortapedError}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> {{ortapedError}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+  </div>
+
+<form method="post" action="ortaped">
 <div class="container mt-5">
     <div class="row">
     
         {{!-- <div class="form-row"> --}}
              <div class="col-6">
                 <label for="inputEmail4">Bemorning Ismi:</label>
-                <input type="text" class="form-control mt-2" id="inputEmail4" placeholder="Bemorning Ismi">
+                <input type="text" name="ism" class="form-control mt-2" id="inputEmail4" placeholder="Bemorning Ismi">
              {{!-- </div> --}}
         </div>
 
         <div class="col-md-6">
       <label for="inputPassword4">Familya :</label>
-      <input type="text" class="form-control mt-2" id="inputPassword4" placeholder="Familya">
+      <input type="text" name="familya" class="form-control mt-2" id="inputPassword4" placeholder="Familya">
     </div>
   </div>
 
@@ -36,12 +45,12 @@
    <div class="row g-3">
   <div class="col">
     <label for="inputPassword4" class="mt-4">Ochistva :</label>
-    <input type="text" class="form-control mt-2" placeholder="Ochistva" aria-label="First name">
+    <input type="text" name="ochistva" class="form-control mt-2" placeholder="Ochistva" aria-label="First name">
   </div>
 
   <div class="col">
     <label for="inputPassword4" class="mt-4">Tug`ulgan yili :</label>
-    <input type="number" class="form-control mt-2" placeholder="Tug`ulgan yili" aria-label="First name">
+    <input type="number" name="yili" class="form-control mt-2" placeholder="Tug`ulgan yili" aria-label="First name">
   
   </div>
 </div>
