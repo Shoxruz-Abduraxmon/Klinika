@@ -1,6 +1,6 @@
 <div class="container text-center">
+  <h2 class="text-center mt-5">Alfa neyron klinikasi</h2>
   <div class="row">
-
     <form method="post" action="nevropatolg">
     <div class="col-3 p-3 mb-2">
       <a href="/nevropatolg" class="nav-link">
@@ -10,7 +10,18 @@
         <hr>
   <div class="card-body">
     <h3 class="card-title">Nevropatolg</h3>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">Bu kungi bemorlarning novbati :</p>
+
+        {{#if newroBemorlar}}
+       <h4 class="text-danger">
+        {{newroBemorlar.length}}
+       </h4>   
+       {{else}}
+        <h4 class="text-danger">
+          0
+        </h4>
+       {{/if}} 
+    
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
@@ -27,7 +38,18 @@
   {{!-- <img src="..." class="card-img-top" alt="..."> --}}
   <div class="card-body">
     <h3 class="card-title">Ortaped</h3>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">Bu kungi bemorlarning novbati :</p>
+
+    {{#if ortapedBemorlar}}
+       <h4 class="text-danger">
+        {{ortapedBemorlar.length}}
+       </h4>   
+       {{else}}
+        <h4 class="text-danger">
+          0
+        </h4>
+       {{/if}} 
+
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
@@ -42,7 +64,18 @@
         <hr>
   <div class="card-body">
     <h3 class="card-title">Pediator</h3>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">Bu kungi bemorlarning novbati :</p>
+
+    {{#if pediaterBemorlar}}
+       <h4 class="text-danger">
+        {{pediaterBemorlar.length}}
+       </h4>   
+       {{else}}
+        <h4 class="text-danger">
+          0
+        </h4>
+       {{/if}} 
+           
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
@@ -58,7 +91,18 @@
   {{!-- <img src="..." class="card-img-top" alt="..."> --}}
   <div class="card-body">
     <h3 class="card-title">Uzey</h3>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">Bu kungi bemorlarning novbati :</p>
+    
+    {{#if uzeyBemorlar}}
+       <h4 class="text-danger">
+        {{uzeyBemorlar.length}}
+       </h4>   
+       {{else}}
+        <h4 class="text-danger">
+          0
+        </h4>
+       {{/if}} 
+       
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
