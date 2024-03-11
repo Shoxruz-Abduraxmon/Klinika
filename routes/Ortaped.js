@@ -1,4 +1,5 @@
 const Router = require('express');
+const Ortaped = require('../models/Ortaped');
 
 const router = Router();
 
@@ -13,22 +14,24 @@ router.get('/Ortaped', (req, res) => {
 router.post('/ortaped', async (req, res) => {
     const {ism, familya, ochistva, yili} = req.body;
 
-    try{
-
      if(!ism || !familya || !ochistva || !yili) {
         req.flash('ortapedError', 'Barcha qatorni to`ldiring !!!')
         res.redirect('Ortaped');
         return
     }
     
-    const ortapedBemor = {
-        ism: req.body.ism,
-        familya: req.body.familya,
-        ochistva: req.body.ochistva,
-        yili: req.body.yili
-    }
+    try{
 
-    console.log(ortapedBemor);
+    const ortaped = await Ortaped.create(req.body);    
+
+    // const ortapedBemor = {
+    //     ism: req.body.ism,
+    //     familya: req.body.familya,
+    //     ochistva: req.body.ochistva,
+    //     yili: req.body.yili
+    // }
+
+    console.log(ortaped);
     res.redirect('home')
     
 }catch (err) {

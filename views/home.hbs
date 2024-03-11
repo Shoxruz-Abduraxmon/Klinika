@@ -12,9 +12,11 @@
     <h3 class="card-title">Nevropatolg</h3>
     <p class="card-text">Bu kungi bemorlarning novbati :</p>
 
-        {{#if newroBemorlar}}
+         
+
+        {{#if bemorlar}}
        <h4 class="text-danger">
-        {{newroBemorlar.length}}
+        {{bemorlar.length}}
        </h4>   
        {{else}}
         <h4 class="text-danger">
@@ -40,9 +42,9 @@
     <h3 class="card-title">Ortaped</h3>
     <p class="card-text">Bu kungi bemorlarning novbati :</p>
 
-    {{#if ortapedBemorlar}}
+    {{#if ortopedBemor}}
        <h4 class="text-danger">
-        {{ortapedBemorlar.length}}
+        {{ortopedBemor.length}}
        </h4>   
        {{else}}
         <h4 class="text-danger">
@@ -66,15 +68,16 @@
     <h3 class="card-title">Pediator</h3>
     <p class="card-text">Bu kungi bemorlarning novbati :</p>
 
-    {{#if pediaterBemorlar}}
+
+    {{#if pediatorDb}}
        <h4 class="text-danger">
-        {{pediaterBemorlar.length}}
+        {{pediatorDb.length}}
        </h4>   
        {{else}}
         <h4 class="text-danger">
           0
         </h4>
-       {{/if}} 
+       {{/if}}  
            
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
@@ -93,9 +96,9 @@
     <h3 class="card-title">Uzey</h3>
     <p class="card-text">Bu kungi bemorlarning novbati :</p>
     
-    {{#if uzeyBemorlar}}
+    {{#if modelsUzey}}
        <h4 class="text-danger">
-        {{uzeyBemorlar.length}}
+        {{modelsUzey.length}}
        </h4>   
        {{else}}
         <h4 class="text-danger">

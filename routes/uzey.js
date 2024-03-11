@@ -1,4 +1,5 @@
 const Router = require('express');
+const Uzey = require('../models/Uzey');
 
 const router = Router();
 
@@ -9,7 +10,7 @@ router.get('/Uzey', (req, res) => {
     });
 });
 
-router.post('/uzey', (req, res) => {
+router.post('/uzey', async (req, res) => {
     const {ism, familya, ochistva, yili} = req.body;
 
     if(!ism || !familya || !ochistva || !yili) {
@@ -18,16 +19,22 @@ router.post('/uzey', (req, res) => {
         return
     }
 
-    const uzeyBemor = {
-        ism: req.body.ism, 
-        familya: req.body.familya,
-        ochistva: req.body.ochistva,
-        yili: req.body.yili
-    }
-
-    console.log(uzeyBemor);
+    // const uzeyBemor = {
+    //     ism: req.body.ism, 
+    //     familya: req.body.familya,
+    //     ochistva: req.body.ochistva,
+    //     yili: req.body.yili
+    // }
+    try{
+    const uzeydb = await Uzey.create(req.body);
+    console.log(uzeydb);
 
     res.redirect('home');
+    
+}catch (err) {
+    console.log(err);
+}
+    
 })
 
 module.exports = router;

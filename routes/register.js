@@ -1,7 +1,9 @@
 const Router = require('express');
-const router = Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const generatorJwt = require('../services/token');
+
+const router = Router();
 
 
 router.get('/register', (req, res) => {
@@ -38,9 +40,13 @@ router.post('/register', async (req, res) => {
             password: hashedPassword
         }
 
-        const user = await User.create(userData)
-        console.log(user)
+        const user = await User.create(userData);
+        const token = generatorJwt(user._id);
+
+
+        res.cookie('token', token, {httpOnly: true, secure:true});
         res.redirect('/');
+        
     }catch (err) {
         console.log(err);
         res.redirect('/register')

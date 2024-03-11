@@ -1,6 +1,8 @@
 const Router = require('express');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const generatorJwt = require('../services/token');
+
 const router = Router();
 
 router.get('/', (req, res) => {
@@ -29,6 +31,10 @@ router.post('/login',async (req, res) => {
     }
 
     const passwordNiTekshirish = await bcrypt.compare(req.body.password, userNiTopish.password);
+
+    const token = generatorJwt(userNiTopish._id, passwordNiTekshirish._id);
+
+    res.cookie('token', token, {httpOnly: true, secure: true});
     if(!passwordNiTekshirish) {
         req.flash('loginError', 'Password not found');
         res.redirect('/');
