@@ -14,6 +14,9 @@ const routerPediator = require('./routes/Pediator');
 const routerUzey = require('./routes/uzey');
 const routerRegister = require('./routes/register');
 
+/// Vrach uchun
+const routerNevropatolgVrach = require('./routes/nevropatolgVrach');
+
 const app = express();
 
 const hbs = epxHbs.create({
@@ -36,6 +39,9 @@ app.use(routerOrtaped);
 app.use(routerPediator);
 app.use(routerUzey);
 app.use(routerRegister);
+
+/// Vrcahlar uchun
+app.use(routerNevropatolgVrach);
 
 
 const connectDB = async () => {
