@@ -16,6 +16,8 @@ const routerRegister = require('./routes/register');
 
 /// Vrach uchun
 const routerNevropatolgVrach = require('./routes/nevropatolgVrach');
+const routerOrtapedVrach = require('./routes/ortapedVrach');
+const routerPediatorVrach = require('./routes/pediatorVrach');
 
 const app = express();
 
@@ -42,14 +44,23 @@ app.use(routerRegister);
 
 /// Vrcahlar uchun
 app.use(routerNevropatolgVrach);
+app.use(routerOrtapedVrach);
+app.use(routerPediatorVrach);
 
 
 const connectDB = async () => {
     try {
-        mongoose.set('strictQuery', false,)
-        mongoose.connect(process.env.MONGO_URI)
+        mongoose.set('strictQuery', false);
+        
+        await mongoose.connect(process.env.MONGO_URI, {
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 5000  
+        }
+    
+        );
+        
         console.log('Mongo connected');
-
         const PORT = process.env.PORT || 1994;
 
         app.listen(PORT, () => {
@@ -57,12 +68,13 @@ const connectDB = async () => {
         });
 
     } catch (err) {
-        console.log(err)
-        process.exit()
+        console.log(err);
+        process.exit(1); 
     }
 }
 
 connectDB();
+
 
 
 

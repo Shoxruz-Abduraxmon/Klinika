@@ -1,12 +1,12 @@
 <div class="container w-50 mx-auto">
-    <form method="post" action="/bermorQabul">
+    <form method="post" action="/pediatorQabul">
         <ul class="nav nav-tabs">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Bugun navbatda</a>
                 <ul class="dropdown-menu">
-                    {{#if bemorlar.length}}
+                    {{#if pediatorBemor.length}}
                     <ol class="list-group list-group-numbered">
-                        {{#each bemorlar}}
+                        {{#each pediatorBemor}}
                             <button type="submit" class="list-group-item badge bg-warning-subtle " name="id" value="{{_id}}">
                                 
                                  <li class="list-group-item ">
@@ -24,7 +24,7 @@
                 </ul>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span class="badge bg-danger badge-pill">{{bemorlar.length}}</span>
+                <span class="badge bg-danger badge-pill">{{pediatorBemor.length}}</span>
             </li>
         </ul>
     </form>
@@ -39,12 +39,12 @@
     </div>
     <div class="tab-content">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            {{#if BemorId}}
+            {{#if pediatorId}}
             <ol class="list-group list-group-flush">
-                <li class="list-group-item text-center"><h6>{{BemorId.ism}}</h6></li>
-                <li class="list-group-item text-center">{{BemorId.familya}}</li>
-                <li class="list-group-item text-center">{{BemorId.yili}} - yil</li>
-                <li class="list-group-item text-warning">{{BemorId.createdAt}}</li>
+                <li class="list-group-item text-center"><h6>{{pediatorId.ism}}</h6></li>
+                <li class="list-group-item text-center">{{pediatorId.familya}}</li>
+                <li class="list-group-item text-center">{{pediatorId.yili}} - yil</li>
+                <li class="list-group-item text-warning">{{pediatorId.createdAt}}</li>
             </ol>
             {{else}}
             <p class="mt-3">Bemor tanlanmagan</p>
@@ -59,8 +59,8 @@
 </div>
 
 <div class="container text-center mt-5">
-    {{#if bemorlar}}
-    <h4 class="text-danger display-2">{{bemorlar.length}}</h4>
+    {{#if pediatorBemor}}
+    <h4 class="text-danger display-2">{{pediatorBemor.length}}</h4>
     {{else}}
     <h4 class="text-danger">0</h4>
     {{/if}}

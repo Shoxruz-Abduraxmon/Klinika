@@ -24,12 +24,6 @@ router.post('/ortaped', async (req, res) => {
 
     const ortaped = await Ortaped.create(req.body);    
 
-    // const ortapedBemor = {
-    //     ism: req.body.ism,
-    //     familya: req.body.familya,
-    //     ochistva: req.body.ochistva,
-    //     yili: req.body.yili
-    // }
 
     console.log(ortaped);
     res.redirect('home')
