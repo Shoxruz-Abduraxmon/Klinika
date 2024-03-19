@@ -15,6 +15,7 @@ router.get('/home', async (req, res) => {
 
     res.render('home', {
         title: 'Klinika',
+        issHome: true,
         bemorlar: bemorlar,
         ortopedBemor: ortopedBemor,
         pediatorDb: pediatorDb,

@@ -18,6 +18,7 @@ const routerRegister = require('./routes/register');
 const routerNevropatolgVrach = require('./routes/nevropatolgVrach');
 const routerOrtapedVrach = require('./routes/ortapedVrach');
 const routerPediatorVrach = require('./routes/pediatorVrach');
+const routerUzeyVrach = require('./routes/uzeyVrach'); 
 
 const app = express();
 
@@ -46,7 +47,7 @@ app.use(routerRegister);
 app.use(routerNevropatolgVrach);
 app.use(routerOrtapedVrach);
 app.use(routerPediatorVrach);
-
+app.use(routerUzeyVrach);
 
 const connectDB = async () => {
     try {

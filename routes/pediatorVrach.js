@@ -12,7 +12,8 @@ router.get('/pediatorVrach', async (req, res) => {
 
         res.render('pediatorVrach', {
             title: 'Pediator Vrach',
-            pediatorBemor: pediatorBemor
+            pediatorBemor: pediatorBemor,
+            issPediator: true
         })
 
     } catch (err) {
@@ -37,7 +38,8 @@ router.get('/pediatorVrach', async (req, res) => {
             res.render('pediatorVrach', {
                 title: 'Pediator Vrach',
                 pediatorBemor: pediatorBemor, 
-                pediatorId: pediatorId
+                pediatorId: pediatorId,
+                issPediator: true
             })
 
         } catch (err) {

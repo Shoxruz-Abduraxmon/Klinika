@@ -10,7 +10,8 @@ router.get('/nevropatolgVrach', async (req, res) => {
 
         res.render('nevropatolgVrach', {
             title: 'Vrach nevropatolg',
-            bemorlar: bemorlar
+            bemorlar: bemorlar,
+            issNevro: true
         });
     } catch (error) {
         console.error(error);
@@ -38,7 +39,8 @@ router.post('/bermorQabul', async (req, res) => {
         res.render('nevropatolgVrach', {
             title: 'Vrach nevropatolg',
             bemorlar: bemorlar,
-            BemorId: BemorId
+            BemorId: BemorId,
+            issNevro: true
         });
     } catch (err) {
         console.log(`NevropatolgVrach.js da ERROR:` + err);

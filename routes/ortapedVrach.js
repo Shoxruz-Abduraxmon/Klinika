@@ -11,7 +11,8 @@ router.get('/ortapedQabul', async (req, res) => {
     
     res.render('ortapedVrach', {
         title: 'Ortaped Vrach',
-        ortapedBemor: ortapedBemor
+        ortapedBemor: ortapedBemor,
+        issOrtaped: true
     })
 
     } catch (err) {
@@ -40,7 +41,8 @@ router.post('/ortapedQabul', async (req, res) => {
         res.render('ortapedVrach', {
             title: 'Ortaped Vrach',
             ortapedBemor: ortapedBemor, 
-            ortapedId: ortapedId 
+            ortapedId: ortapedId,
+            issOrtaped: true 
         });
     } catch (err) {
         console.log('Ortaped Vrach Post ERROR' + err);
