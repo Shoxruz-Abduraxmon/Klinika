@@ -1,17 +1,23 @@
 <h1 class="mt-3 text-center">Ortaped qabul bo`limi</h1>
 
-
-<div class="container ">
+<form method="post" action="ortapedIstor">
+  <div class="container ">
  <label for="inputPassword4" class="mt-4">Oldin kelganlar :</label>
     <select class="form-select mt-2" aria-label="Default select example">
-      <option value="1">Nevropatolg</option>
-      <option value="2">Ortaped</option>
-      <option value="3">Pediator</option>
-      <option value="3">Uzey</option>
+      {{#if ortapedBemorIstor}}
+        {{#each ortapedBemorIstor}}
+      <option value="1">{{ism}} {{familya}} {{ochistva}}</option>
+        {{/each}}
+      {{else}}
+      <option value="1">Qabulda hechkim bo`lmagdan</option>
+      {{/if}}
     </select>
+    <button type="submit">Qabul</button>
     </div>
 <hr class="mt-4">
 </div>
+</form>
+
 
 
  <div class="container">

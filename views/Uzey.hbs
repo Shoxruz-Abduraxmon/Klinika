@@ -1,16 +1,25 @@
 <h1 class="mt-3 text-center">Uzey qabul bo`limi</h1>
 
-<div class="container ">
+<form method="post" action="uzeyIstor">
+    <div class="container ">
  <label for="inputPassword4" class="mt-4">Oldin kelganlar :</label>
     <select class="form-select mt-2" aria-label="Default select example">
-      <option value="1">Nevropatolg</option>
-      <option value="2">Ortaped</option>
-      <option value="3">Pediator</option>
-      <option value="3">Uzey</option>
+      {{#if uzeyIstor}}
+      {{#each uzeyIstor}}
+      <option>{{ism}} {{familya}} {{ochistva}} {{yili}}</option>
+      {{/each}}
+      {{else}}
+      <option>Bemorlarni ko`rish uchun Qabul tugmasini bosing !!!</option>
+      {{/if}}
     </select>
+    <button type="submit">
+      Qabul
+    </button>
     </div>
 <hr class="mt-4">
 </div>
+
+</form>
 
 <div class="container">
   {{#if uzeyError}}
@@ -58,6 +67,13 @@
 </div>
 </form>
 
+
+{{!-- {{#if uzeyyId}}
+{{#each uzeyyId}}
+<p>{{uzeyyId.ism}}</p>
+{{else}}
+<p>No name</p>
+{{/if}} --}}
 
 
 

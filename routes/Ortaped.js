@@ -31,6 +31,23 @@ router.post('/ortaped', async (req, res) => {
 }catch (err) {
     console.log(err);
 } 
+});
+
+router.post('/ortapedIstor', async (req, res) => {
+    const id = req.body.id;
+
+    try{
+        const ortapedBemorIstor = await Ortaped.find().lean();
+        const ortapedId = await Ortaped.findById(id).lean();
+
+        res.render('Ortaped', {
+            title: 'Ortaped qabul bo`limi',
+            ortapedBemorIstor: ortapedBemorIstor,
+            ortapedId: ortapedId
+        });
+    } catch (err) {
+        console.log('NevroIstorda ERROR ' + err);
+    }
 })
 
 module.exports = router;

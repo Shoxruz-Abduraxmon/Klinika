@@ -35,6 +35,23 @@ router.post('/pediator', async (req, res) => {
         console.log(err);
     }
     
+});
+
+
+router.post('/pediatorIstor', async (req, res) => {
+
+    try{
+        const id = req.body.id;
+
+        const pediatorIstor = await Pediator.find().lean();
+
+        res.render('Pediator', {
+            title: 'Pediator qabul bo`limi',
+            pediatorIstor: pediatorIstor
+        })
+    } catch (err) {
+        console.log('PediatorIstorda ERROR ' + err);
+    }
 })
 
 module.exports = router;

@@ -35,6 +35,29 @@ router.post('/uzey', async (req, res) => {
     console.log(err);
 }
     
+});
+
+
+router.post('/uzeyIstor', async (req, res) => {
+
+    try{
+        const id = req.body.id;
+
+        const uzeyIstor = await Uzey.find().lean();
+        const uzeyyId = await Uzey.findById(id).lean();
+
+        res.render('Uzey', {
+            title: 'Uzey qabul bo`limi',
+            uzeyIstor: uzeyIstor,
+            uzeyId: uzeyyId
+        });
+
+        // console.log(json(uzeyyId));
+        // console.log(uzeyyId);
+
+    } catch (err) {
+        console.log('UzeyIstorda ERROR ' + err)
+    }
 })
 
 module.exports = router;
