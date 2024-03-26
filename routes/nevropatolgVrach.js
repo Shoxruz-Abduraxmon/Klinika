@@ -26,6 +26,10 @@ router.post('/bermorQabul', async (req, res) => {
         const bemorlar = await Bemor.find().lean();
         const BemorId = await Bemor.findById(id).lean();
 
+      for(let i = 0; i < bemorlar.length; i ++) {
+        await Bemor.findByIdAndUpdate(bemorlar[i]._id);
+      }
+
         bemorlar.forEach(bemor => {
             bemor.createdAt = moment(bemor.createdAt).format('DD-MM-YYYY | HH:mm:ss');
         });
@@ -36,11 +40,12 @@ router.post('/bermorQabul', async (req, res) => {
             return res.status(404).send('Bunday bemor topilmadi');
         }
 
+
         res.render('nevropatolgVrach', {
             title: 'Vrach nevropatolg',
             bemorlar: bemorlar,
             BemorId: BemorId,
-            issNevro: true
+            issNevro: true,
         });
     } catch (err) {
         console.log(`NevropatolgVrach.js da ERROR:` + err);
