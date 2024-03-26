@@ -3,10 +3,10 @@
 <form method="post" action="uzeyIstor">
     <div class="container ">
  <label for="inputPassword4" class="mt-4">Oldin kelganlar :</label>
-    <select class="form-select mt-2" aria-label="Default select example">
+    <select class="form-select mt-2" aria-label="Default select example" name="id">
       {{#if uzeyIstor}}
       {{#each uzeyIstor}}
-      <option>{{ism}} {{familya}} {{ochistva}} {{yili}}</option>
+      <option value="{{id}}">{{ism}} {{familya}} {{ochistva}} {{yili}}</option>
       {{/each}}
       {{else}}
       <option>Bemorlarni ko`rish uchun Qabul tugmasini bosing !!!</option>
