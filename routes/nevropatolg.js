@@ -13,7 +13,7 @@ router.get('/nevropatolg', (req, res) => {
 })
 
 router.post('/nevro', async (req, res) => {
-   const {ism, familya, ochistva, yili} = req.body;
+    const {ism, familya, ochistva, yili, tashhisi, tavsiya, qaytaKoruv} = req.body;
 
    if(!ism || !familya || !ochistva || !yili) {
     req.flash('nevropatolgError', 'Barcha qatorlarni to`ldiring !!!')
@@ -22,7 +22,9 @@ router.post('/nevro', async (req, res) => {
     return
    }
 
-
+   const tashhisiNol = tashhisi || 0;
+   const tavsiyaNol = tavsiya || 0;
+   const qaytaKoruvNol = qaytaKoruv || 0;
 //    const bemorlar = {
 //     ism: req.body.ism,
 //     familya: req.body.familya,
@@ -31,7 +33,15 @@ router.post('/nevro', async (req, res) => {
 //    }
     
    try{
-    const newroBemor = Bemor.create(req.body);
+    const newroBemor = Bemor.create({
+        ism, 
+        familya,
+        ochistva,
+        yili,
+        tashhisi: tashhisiNol,
+        tavsiya: tavsiyaNol,
+        qaytaKoruv: qaytaKoruvNol
+    });
 
    console.log(newroBemor);
     res.redirect('home');

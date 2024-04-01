@@ -65,6 +65,8 @@ router.post('/uzeyEdit/:id', async (req, res) => {
     const id = req.params.id;
     const { tashhisi, tavsiya, qaytaKoruv } = req.body;
 
+    const uzeyBemor = await Uzey.find().lean();
+
     try {
         const updatedUzey = await Uzey.findByIdAndUpdate(id, {
             tashhisi: tashhisi,
@@ -75,6 +77,7 @@ router.post('/uzeyEdit/:id', async (req, res) => {
         console.log(updatedUzey);
         res.render('uzeyVrach', {
             title: 'Uzey Vrach',
+            uzeyBemor: uzeyBemor,
             issUzey: true
         }); 
 
