@@ -3,10 +3,10 @@
 <form method="post" action="uzeyIstor">
     <div class="container ">
  <label for="inputPassword4" class="mt-4">Oldin kelganlar :</label>
-    <select class="form-select mt-2" aria-label="Default select example" name="id">
+    <select class="form-select mt-2" aria-label="Default select example">
       {{#if uzeyIstor}}
       {{#each uzeyIstor}}
-      <option value="{{id}}">{{ism}} {{familya}} {{ochistva}} {{yili}}</option>
+      <option >{{ism}} {{familya}} {{ochistva}} {{yili}}</option>
       {{/each}}
       {{else}}
       <option>Bemorlarni ko`rish uchun Qabul tugmasini bosing !!!</option>
@@ -61,6 +61,20 @@
   
   </div>
 </div>
+    <p>
+   <input type="text" name="tashhisi" class="form-control mt-2" placeholder="Tashhisi" aria-label="First name">
+    0
+    </p>
+
+    <p>
+    <input type="text" name="tavsiya" class="form-control mt-2" placeholder="Tavsiya" aria-label="First name">
+    
+    </p>
+
+    <p>
+     <input type="radio" name="qaytaKoruv" class="form-control mt-2" placeholder="Qayta ko`ruv" aria-label="First name">
+    0
+    </p>
 
     <button type="submit" class="btn btn-warning mt-4">Qabul qilindi</button>
 

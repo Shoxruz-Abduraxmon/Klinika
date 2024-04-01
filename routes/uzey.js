@@ -11,7 +11,9 @@ router.get('/Uzey', (req, res) => {
 });
 
 router.post('/uzey', async (req, res) => {
-    const {ism, familya, ochistva, yili} = req.body;
+    const {ism, familya, ochistva, yili, tashhisi, tavsiya, qaytaKoruv} = req.body;
+
+    
 
     if(!ism || !familya || !ochistva || !yili) {
         req.flash('uzeyError', 'Barcha qatorlarni to`ldiring !!!');
@@ -19,14 +21,21 @@ router.post('/uzey', async (req, res) => {
         return
     }
 
-    // const uzeyBemor = {
-    //     ism: req.body.ism, 
-    //     familya: req.body.familya,
-    //     ochistva: req.body.ochistva,
-    //     yili: req.body.yili
-    // }
+    const tashhisiNol = tashhisi || 0;
+    const tavsiyaNol = tavsiya || 0;
+    const qaytaKoruvNol = qaytaKoruv || 0;
+
+   
     try{
-    const uzeydb = await Uzey.create(req.body);
+    const uzeydb = await Uzey.create({
+        ism,
+        familya,
+        ochistva,
+        yili,
+        tashhisi: tashhisiNol,
+        tavsiya: tavsiyaNol,
+        qaytaKoruv: qaytaKoruvNol
+    });
     console.log(uzeydb);
 
     res.redirect('home');
