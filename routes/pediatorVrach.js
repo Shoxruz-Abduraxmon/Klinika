@@ -48,7 +48,28 @@ router.get('/pediatorVrach', async (req, res) => {
         }
     })
     
-})
+});
+
+router.post('/pediaterEdit/:id', async (req, res) => {
+    const id = req.params.id;
+    const { tashhisi, tavsiya, qaytaKoruv } = req.body;
+    const pediatorBemor = await Pediator.find().lean();
+
+    try{
+        const pediatorEditBemor = await Pediator.findByIdAndUpdate(id, {
+            tashhisi: tashhisi, 
+            tavsiya: tavsiya,
+            qaytaKoruv: qaytaKoruv
+        }, {new : true});
+        console.log(pediatorEditBemor);
+        res.render('pediatorVrach', {
+            pediatorBemor: pediatorBemor,
+            issPediator: true   
+        });
+    } catch (e) {
+        console.log("Pediator Editda ERROR " + e);
+    }
+});
 
 
 module.exports = router;

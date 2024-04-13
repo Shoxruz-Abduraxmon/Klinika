@@ -55,8 +55,31 @@ router.post('/bermorQabul', async (req, res) => {
 
 
 
+router.post('/edit/:id', async (req, res) => {
+    const id = req.params.id;
 
+    const { tashhisi, tavsiya, qaytaKoruv } = req.body;
 
+    const bemorlar = await Bemor.find().lean();
+
+    try {
+        const nevroEditGet = await Bemor.findByIdAndUpdate(id, {
+            tashhisi: tashhisi,
+            tavsiya: tavsiya,
+            qaytaKoruv: qaytaKoruv
+        }, { new: true });
+
+        console.log(nevroEditGet);
+        res.render('nevropatolgVrach', {
+            title: 'Vrach nevropatolg',
+            bemorlar: bemorlar,
+            issNevro: true,
+        });
+
+    } catch (e) {
+        console.log("NevroEditda ERROR" + e)
+    }
+})
 
 
 module.exports = router;

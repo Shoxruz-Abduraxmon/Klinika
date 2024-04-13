@@ -49,6 +49,30 @@ router.post('/ortapedQabul', async (req, res) => {
         res.status(500).send(err);
     }
     
+});
+
+router.post('/editOrtoped/:id', async (req, res) => {
+    const id = req.params.id;
+
+    const { tashhisi, tavsiya, qaytaKoruv } = req.body;
+
+    const ortapedBemor = await Ortaped.find().lean();
+
+    try{
+        const ortapedEditBemor = await Ortaped.findByIdAndUpdate(id, {
+            tashhisi: tashhisi,
+            tavsiya: tavsiya,
+            qaytaKoruv: qaytaKoruv
+        }, {new: true});
+        console.log(ortapedEditBemor);
+        res.render('ortapedVrach', {
+            title: 'Ortaped Vrach',
+            ortapedBemor: ortapedBemor,
+            issOrtaped: true
+        })
+    } catch (e) {
+        console.log('Ortaped editda ERROR ' + e);
+    }
 })
 
 
