@@ -11,7 +11,7 @@ router.get('/Pediator', (req, res) => {
 });
 
 router.post('/pediator', async (req, res) => {
-    const {ism, familya, ochistva, yili} = req.body;
+    const {ism, familya, ochistva, yili, tashhisi, tavsiya, qaytaKoruv} = req.body;
     
     if(!ism || !familya || !ochistva || !yili) {
         req.flash('pediatorError', 'Barcha qatorni to`ldiring !!!')
@@ -19,15 +19,20 @@ router.post('/pediator', async (req, res) => {
         return
     }
 
-    // const pediatorBemor = {
-    //     ism: req.body.ism,
-    //     familya: req.body.familya,
-    //     ochistva: req.body.ochistva,
-    //     yili: req.body.yili
-    // }
+    const tashhisiNol = tashhisi || 0;
+    const tavsiyaNol = tavsiya || 0;
+    const qaytaKoruvNol = qaytaKoruv || 0;
 
     try{
-        const PediatorDb = await Pediator.create(req.body);
+        const PediatorDb = await Pediator.create({
+            ism,
+            familya,
+            ochistva,
+            yili,
+            tashhisi: tashhisiNol,
+            tavsiya: tavsiyaNol,
+            qaytaKoruv: qaytaKoruvNol
+        });
         console.log(PediatorDb);
 
     res.redirect('home')

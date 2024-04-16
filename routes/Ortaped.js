@@ -12,7 +12,7 @@ router.get('/Ortaped', (req, res) => {
 
 
 router.post('/ortaped', async (req, res) => {
-    const {ism, familya, ochistva, yili} = req.body;
+    const {ism, familya, ochistva, yili, tashhisi, tavsiya, qaytaKoruv} = req.body;
 
      if(!ism || !familya || !ochistva || !yili) {
         req.flash('ortapedError', 'Barcha qatorni to`ldiring !!!')
@@ -20,10 +20,20 @@ router.post('/ortaped', async (req, res) => {
         return
     }
     
+    const tashhisiNol = tashhisi || 0;
+    const tavsiyaNol = tavsiya || 0;
+    const qaytaKoruvNol = qaytaKoruv || 0;
+    
     try{
-
-    const ortaped = await Ortaped.create(req.body);    
-
+    const ortaped = await Ortaped.create({
+        ism,
+        familya,
+        ochistva,
+        yili,
+        tashhisi: tashhisiNol,
+        tavsiya: tavsiyaNol,
+        qaytaKoruv: qaytaKoruvNol
+    });    
 
     console.log(ortaped);
     res.redirect('home')

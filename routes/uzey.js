@@ -61,9 +61,6 @@ router.post('/uzeyIstor', async (req, res) => {
             uzeyId: uzeyyId
         });
 
-        // console.log(json(uzeyyId));
-        // console.log(uzeyyId);
-
     } catch (err) {
         console.log('UzeyIstorda ERROR ' + err)
     }
